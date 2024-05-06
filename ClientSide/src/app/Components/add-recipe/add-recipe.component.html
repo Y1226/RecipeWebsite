@@ -1,0 +1,40 @@
+<div class="w3-container w3-padding-64 w3-blue-grey w3-grayscale-min w3-xlarge">
+        <div class="w3-content">
+                <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">ADD RECIPE</h1>
+                <!-- <p>Find us at some address at some place or call us at 05050515-122330</p> -->
+                <!-- <p><span class="w3-tag">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p> -->
+                <!-- <p class="w3-xxlarge"><strong>Reserve</strong> a table, ask for today's special or just send us a message:</p> -->
+                <form [formGroup]="myForm" action="/action_page.php" target="_blank">
+                        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required
+                                        name="Name" formControlName="name" appDirective></p>
+                        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Description"
+                                        required name="description" formControlName="description" appDirective></p>
+                        <p><select class="w3-input w3-padding-16 w3-border" placeholder="Level" name="Level" required
+                                        id="Level" formControlName="level" appDirective>
+                                        <option value="" hidden>Level</option>
+                                        <option value="Easy">Easy</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="Hard">Hard</option>
+                                </select></p>
+                        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Time" required
+                                        name="time" formControlName="time" appDirective></p>
+                        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Yields" required
+                                        name="yields" formControlName="yields" appDirective></p>
+                                <!-- <input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Instructions"
+                                        required name="instructions" formControlName="instructions" appDirective> -->
+                        <!-- <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="UserName" required name="userName" formControlName="userName"></p> -->
+                        <p class="w3-input w3-padding-16 w3-border">
+                                <input type="text" placeholder="Ingredients" required name="ingredients" id="0"
+                                        (blur)="addIng($event)">
+                                <input type="text" placeholder="Amount" required name="ingredients" id="0"
+                                        (blur)="addAmount($event)">
+                                <span id="addedInput"></span>
+                                <input type="button" value="+" (click)="addIngredient()" />
+                        </p>
+                        <p><textarea class="w3-input w3-padding-16 w3-border" id="textarea" name="w3review" rows="4" cols="50" placeholder="Instructions" 
+                                required name="instructions" formControlName="instructions" appDirective><h1></h1></textarea></p>
+                        <p><button class="w3-button w3-light-grey w3-block" type="submit"
+                                        (click)="addRecipe()">SUBMIT</button></p>
+                </form>
+        </div>
+</div>

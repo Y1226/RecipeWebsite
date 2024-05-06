@@ -1,0 +1,68 @@
+<div class="w3-blue-grey w3-grayscale-min" id="tour">
+  <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+    <h2 class="w3-wide w3-center">RECIPES</h2>
+
+    <div id="rcps" class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+      <div *ngFor="let i of RecipeArr" class="w3-third w3-margin-bottom">
+        <!-- <img src="/w3images/newyork.jpg" alt="New York" style="width:100%" class="w3-hover-opacity"> -->
+        <img src="../../../assets/Pictures/recipes.jpg" class="img-thumbnail" alt="Cinque Terre" style="width:100%"> 
+        <div class="w3-container w3-white">
+          <p><b>{{i.name}}</b></p>
+          <p class="w3-opacity">Level: {{i.level}}</p>
+          <p class="w3-opacity">UserName: {{i.userName}}</p>
+          <!-- <p>&#xF78B;</p> -->
+          <button class="w3-button w3-black w3-margin-bottom" (click)="deleteRecipe(i)">Delete</button>
+          <button class="w3-button w3-black w3-margin-bottom" (mouseover)="showDetails(i)"
+            onclick="document.getElementById('ticketModal').style.display='block'">Show More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Ticket Modal -->
+<!-- <div id="ticketModal" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+      <header class="w3-container w3-teal w3-center w3-padding-32"> 
+        <span onclick="document.getElementById('ticketModal').style.display='none'" 
+       class="w3-button w3-teal w3-xlarge w3-display-topright">×</span>
+        <h2 class="w3-wide"><i class="fa fa-suitcase w3-margin-right"></i>Tickets</h2>
+      </header>
+      <div class="w3-container">
+        <p><label><i class="fa fa-shopping-cart"></i> Tickets, $15 per person</label></p>
+        <input class="w3-input w3-border" type="text" placeholder="How many?">
+        <p><label><i class="fa fa-user"></i> Send To</label></p>
+        <input class="w3-input w3-border" type="text" placeholder="Enter email">
+        <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-right">PAY <i class="fa fa-check"></i></button>
+        <button class="w3-button w3-red w3-section" onclick="document.getElementById('ticketModal').style.display='none'">Close <i class="fa fa-remove"></i></button>
+        <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
+      </div>
+    </div>
+  </div> -->
+<div id="ticketModal" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-4">
+    <header class="w3-container w3-gray w3-center w3-padding-32">
+      <span onclick="document.getElementById('ticketModal').style.display='none'"
+        class="w3-button w3-gray w3-xlarge w3-display-topright">×</span>
+      <h2 class="w3-wide">{{chosenRecipe.name}}</h2>
+    </header>
+    <div class="w3-container">
+      <p><label><b>Description: </b>{{chosenRecipe.description}}</label></p>
+      <p><label><b>Level: </b>{{chosenRecipe.level}}</label></p>
+      <p><label><b>Time: </b>{{chosenRecipe.time}}</label></p>
+      <p><label><b>Yields: </b>{{chosenRecipe.yields}}</label></p>
+      <label><b>Ingredients: </b></label>
+      <p *ngFor="let j of chosenRecipe.ingredients">
+        <label>
+          {{j.amount}}
+          {{j.ingredient}}
+        </label>
+      </p>
+      <label><b>Instructions: </b></label>
+      <p *ngFor="let j of chosenRecipe.instructions"><label>{{j}}</label></p>
+      <p><label><b>UserName: </b>{{chosenRecipe.userName}}</label></p>
+      <!-- <button class="w3-button w3-red w3-section" onclick="document.getElementById('ticketModal').style.display='none'">Close <i class="fa fa-remove"></i></button> -->
+      <!-- <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p> -->
+    </div>
+  </div>
+</div>
