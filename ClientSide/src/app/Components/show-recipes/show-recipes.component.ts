@@ -9,17 +9,17 @@ import { UserServiceService } from 'src/Services/Users/user-service.service';
   templateUrl: './show-recipes.component.html',
   styleUrls: ['./show-recipes.component.css']
 })
-export class ShowRecipesComponent implements OnInit{
- 
-  
-  constructor(public recipeService:RecipeServiceService,public userService:UserServiceService,public router:Router) {}
-  
+export class ShowRecipesComponent implements OnInit {
+
+
+  constructor(public recipeService: RecipeServiceService, public userService: UserServiceService, public router: Router) { }
+
   chosenRecipe: Recipes = new Recipes()
-  RecipeArr:Array<Recipes> = new Array<Recipes>();
-  arrayOfRows:Array<string> = this.recipeService.arrayOfRows
+  RecipeArr: Array<Recipes> = new Array<Recipes>();
+  arrayOfRows: Array<string> = this.recipeService.arrayOfRows
 
   ngOnInit(): void {
-    debugger
+    // debugger
     this.recipeService.getAll().subscribe(x => this.RecipeArr = x)
   }
 
@@ -28,21 +28,13 @@ export class ShowRecipesComponent implements OnInit{
   }
 
   deleteRecipe(i: Recipes) {
-    debugger
-    if(this.userService.currentUser.fname==i.userName)
-    {
-      this.recipeService.deleteRecipe(i.name!, i.userName!).subscribe(x => {x;debugger})
+    // debugger
+    if (this.userService.currentUser.fname == i.userName) {
+      this.recipeService.deleteRecipe(i.name!, i.userName!).subscribe(x => { x; debugger })
       alert(`${i.name} is going to be deleted.`)
-      // this.recipeService.getAll().subscribe(x => this.RecipeArr = x)
-      // location.reload();
-      // this.router.navigate(['../addRecipe'])
-      // console.log("hello");
-      
-      // this.router.navigate(['../showRecipe'])
       this.ngOnInit();
     }
     else
       alert('Permission Denied, Make sure you are in the correct account.')
-    
   }
 }

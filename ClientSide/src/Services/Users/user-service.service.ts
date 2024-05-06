@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Users } from 'src/Classes/Users';
 
@@ -19,12 +19,12 @@ export class UserServiceService {
   }
 
   getByUserNameAndPassword(email:string, pass:string): Observable<Users> {
-    debugger
+    // debugger
     return this.httpclient.get<Users>(`${this.baseUrl}getByUserNameAndPassword/${email}/${pass}`)
   }
 
   addUser(usr: Users): Observable<Users> {
-    debugger
+    // debugger
     return this.httpclient.post<Users>(`${this.baseUrl}addUser`, usr)
   }
 }

@@ -35,7 +35,7 @@ export class LoginComponent {
   }
 
   openMenu = (evt: any, menuName: any) => {
-    debugger
+    // debugger
     let i, x, tablinks;
     x = document.querySelectorAll<HTMLElement>('.menu');
     for (i = 0; i < x.length; i++) {
@@ -51,9 +51,9 @@ export class LoginComponent {
 
   addUserAndSignIn = () => {
     let user:Users=this.myForm.value
-    debugger
+    // debugger
     this.userService.addUser(user).subscribe(x => {
-      debugger
+      // debugger
       this.userService.currentUser = x;
       document.getElementById('addRecipe')!.style.display = "block"
       document.getElementById('logout')!.innerText = 'LOGOUT'
@@ -62,9 +62,7 @@ export class LoginComponent {
   }
 
   login = () => {
-    debugger
-    // document.getElementById('addRcp')!.style.display = "block"
-    // document.getElementById('addRcp')!.removeAttribute('display')
+    // debugger
     this.userService.getByUserNameAndPassword(this.getEmail(), this.getPassword()).subscribe(x => {debugger;
       this.userService.currentUser = x;
       if (this.userService.currentUser == null) {
