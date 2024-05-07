@@ -13,7 +13,7 @@ This is a basic website where users can view recipes shared by others. Users hav
 
 ### Project Background:
 
-I developed this website as a school assignment to demonstrate my ability to build a full-stack application using SQL Server, Node.js, and Angular. The project requirements were to create a recipe-sharing platform with the following functionality:
+I developed this website as a school assignment to demonstrate my ability to build a full-stack application using MongoDB, Node.js, and Angular. The project requirements were to create a recipe-sharing platform with the following functionality:
 
 - Allow users to view recipes.
 - Provide the option to create an account or log in.
